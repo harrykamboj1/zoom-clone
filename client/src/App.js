@@ -39,8 +39,10 @@ function App() {
         </Typography>
       </AppBar>
       <VideoPlayer />
-      <Option />
-      <Notification />
+      <Option>
+        <Notification />
+      </Option>
+
     </div>
   );
 }

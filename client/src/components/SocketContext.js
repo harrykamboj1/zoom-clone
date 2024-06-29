@@ -35,7 +35,7 @@ const ContextProvider = ({ children }) => {
         socket.on('me', (id) => setMe(id));
 
         socket.on('calluser', ({ from, name: callerName, signal }) => {
-            console.log("Call User :: " + from + "" + callerName + signal)
+            console.log("Call User :: " + from + " " + callerName + " " + signal)
             setCall({ isReceivedCall: true, from, name: callerName, signal })
         })
     }, [])
@@ -87,7 +87,11 @@ const ContextProvider = ({ children }) => {
     const leaveCall = () => {
         setCallEnded(true);
         connectionRef.current.destroy();
-        window.location.reload();
+        try {
+            window.location.reload();
+        } catch (e) {
+            console.log("ERROR ::  " + e)
+        }
     }
 
     return (
