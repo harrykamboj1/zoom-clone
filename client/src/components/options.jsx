@@ -65,7 +65,7 @@ const Option = ({ children }) => {
                 onChange={(e) => setName(e.target.value)}
                 fullWidth
               />
-              {console.log(me)}
+
               <CopyToClipboard text={me} className={classes.margin}>
                 <Button
                   variant="contained"
